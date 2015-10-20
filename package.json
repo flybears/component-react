@@ -1,0 +1,9 @@
+{
+  "name": "webComponent-react",
+  "version": "0.0.1",
+  "author": "flybear,sjl",
+  "description": "基于react开发的web组件",
+  "devDependencies": {
+    "express": "^4.13.3"
+  }
+}
