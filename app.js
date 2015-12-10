@@ -1,28 +1,29 @@
-/**
- * Created by flybear on 15/10/20.
- */
-var express = require("express");
-var http = require("http");
-var path = require("path");
-var webpack = require("webpack");
-var config = require("./webpack.dev.config.js");
+var path = require('path');
+var express = require('express');
+var webpack = require('webpack');
+var config = require('./webpack.config.dev');
 
-var app = express(), server = http.createServer(app);
+var app = express();
 var compiler = webpack(config);
+
+app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true
+    //publicPath: config.output.publicPath
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(express.static(__dirname + "/demo"));
 
-app.use(require("webpack-dev-middleware")(compiler, {
-    noInfo: true
-}));
-
-app.use(require("webpack-hot-middleware")(compiler));
-
-app.get("*", function(req, res){
-    res.sendFile(path.join(__dirname, "build/index.html"));
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
+app.listen(3001, 'localhost', function(err) {
+    if (err) {
+        console.log(err);
+        return;
+    }
 
-server.listen(3001, function () {
-    console.info('Express server listening on port 3001.');
+    console.log('Listening at http://localhost:3001');
 });

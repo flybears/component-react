@@ -4,23 +4,26 @@
 
 import React from 'react'
 
-class About extends React.Component {
-    render() {
-        const events = [
-            { id: 0, title: 'essay due' }
-        ]
+export default class About extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {click: false};
+    }
 
+    handleClick(event){
+        this.setState({click: !this.state.click});
+    }
+
+    render() {
+        let title = this.state.click ? "don't click me!" : "click me!";
         return (
             <div>
                 <h2>About</h2>
                 <ul>
-                    {events.map(event => (
-                        <li key={event.id}>{event.title}</li>
-                    ))}
+                   <li onClick={this.handleClick}>{title}</li>
                 </ul>
             </div>
         )
     }
 }
-
-export default About

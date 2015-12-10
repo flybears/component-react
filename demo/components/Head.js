@@ -3,7 +3,7 @@
  */
 import React from 'react'
 
-class Head extends React.Component {
+export default class Head extends React.Component {
     render() {
         return (
             <div>
@@ -12,5 +12,3 @@ class Head extends React.Component {
         )
     }
 }
-
-export default Head
