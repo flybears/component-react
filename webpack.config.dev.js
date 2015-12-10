@@ -8,8 +8,9 @@ module.exports = {
         './demo/main.js'
     ],
     output: {
-        path: path.join(__dirname, 'build'),
-        filename: 'bundle.js'
+        path: __dirname + '/__build__',
+        filename: 'bundle.js',
+        publicPath: '/__build__/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

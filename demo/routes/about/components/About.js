@@ -4,7 +4,7 @@
 
 import React from 'react'
 
-export default class About extends React.Component {
+class About extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -27,3 +27,5 @@ export default class About extends React.Component {
         )
     }
 }
+
+export default About
