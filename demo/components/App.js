@@ -6,9 +6,11 @@ import Dashboard from './Dashboard.js'
 import Head from './Head.js'
 import Footer from './Footer.js'
 
+
+require('../static/css/index.css');
+
 class App extends React.Component {
     render() {
-        console.log(this.props.children)
         return (
             <div>
                 <Head />
